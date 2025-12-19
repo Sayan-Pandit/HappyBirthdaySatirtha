@@ -1,6 +1,6 @@
 var sf = new Snowflakes({
-    color: "#86ddd2ff",
-    minSize: 20
+    color: "#ffffffff",
+    minSize: 30
 });
 var url_string = window.location.href; //window.location.href
 var url = new URL(url_string);
