@@ -288,3 +288,37 @@ img {
         height: 80px;
     }
 }
+/* =========================
+   GLOW BORDER FOR CAKE
+========================= */
+.cake {
+    position: relative;
+    border-radius: 20px;
+    padding: 15px;
+    animation: cakeGlow 2.5s infinite alternate;
+}
+
+/* glowing outline */
+.cake::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff4d6d, #ffb703, #4cc9f0);
+
+    filter: blur(12px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* glow animation */
+@keyframes cakeGlow {
+    from {
+        box-shadow: 0 0 15px rgba(255, 183, 3, 0.6),
+                    0 0 30px rgba(255, 77, 109, 0.4);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255, 183, 3, 0.9),
+                    0 0 50px rgba(76, 201, 240, 0.7);
+    }
+}
