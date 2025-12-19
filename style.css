@@ -1,4 +1,10 @@
-/* customizable snowflake styling */
+/* customizable snowflake styling
+.snowflake {
+    position: fixed !important;
+    z-index: 9999999 !important;
+    pointer-events: none;
+}
+
 .loader button {
     width: 50%;
     height: 100px;
@@ -51,7 +57,7 @@
     width: 100%;
     height: 100%;
     z-index: 999;
-    background: url(img/back.png) center no-repeat #000;
+    background: url(back.png) center no-repeat #000;
 }
 
 .song {
@@ -82,10 +88,7 @@ img {
     text-transform: uppercase;
     animation: spin 2s ease-out infinite;
     text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
-}
-
-#nae {
-    text-transform: capitalize;
+    font-size-adjust: 0.3;
 }
 
 #confetti {
@@ -114,16 +117,174 @@ img {
     }
 }
 
+
 .type-wrap {
     font-size: 25px;
     color: #C4515C;
+} */
 
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.cake {
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-    left: 50%;
-    position: absolute;
-    padding-top: 250px;
+body {
+    background-color: #31aca1;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================
+   SNOWFLAKES
+========================= */
+.snowflake {
+    position: fixed !important;
+    z-index: 900 !important;
+    pointer-events: none;
+}
+
+/* =========================
+   LOADER / START SCREEN
+========================= */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader button {
+    width: 50%;
+    max-width: 500px;
+    height: 100px;
+    font-size: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    border: none;
+    border-radius: 10px;
+    outline: none;
+
+    background-image: linear-gradient(
+        160deg,
+        #a54e07,
+        #b47e11,
+        #fef1a2,
+        #bc881b,
+        #a54e07
+    );
+
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, .16),
+        0 3px 6px rgba(110, 80, 20, .4),
+        inset 0 -2px 5px rgba(139, 66, 8, 1),
+        inset 0 -1px 1px rgba(250, 227, 133, 1);
+
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    transition: all .25s ease;
+}
+
+.loader button:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   AUDIO
+========================= */
+.song {
+    display: none;
+}
+
+/* =========================
+   CONFETTI CANVAS
+========================= */
+#confetti {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+img {
+    width: 100%;
+}
+
+/* Name */
+.area {
+    text-align: center;
+    font-size: 70px;
+    color: #C4515C;
+    letter-spacing: -6px;
+    font-weight: 800;
+    text-transform: uppercase;
+    animation: spin 2s ease-in-out infinite;
+    text-shadow: 0 0 6px #fff, 0 0 10px #fff;
+}
+
+/* Typing text */
+.type-wrap {
+    margin-top: 10px;
+    font-size: 25px;
+    color: #C4515C;
+    text-align: center;
+}
+
+#nae {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+/* =========================
+   BALLOONS
+========================= */
+.balloon-border {
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    opacity: 0.6;
+    z-index: 50;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes spin {
+    0%   { transform: rotateZ(0deg); }
+    25%  { transform: rotateZ(10deg); }
+    50%  { transform: rotateZ(0deg); }
+    75%  { transform: rotateZ(-10deg); }
+    100% { transform: rotateZ(0deg); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .area {
+        font-size: 48px;
+        letter-spacing: -3px;
+    }
+
+    .type-wrap {
+        font-size: 20px;
+    }
+
+    .loader button {
+        width: 80%;
+        font-size: 36px;
+        height: 80px;
+    }
 }
