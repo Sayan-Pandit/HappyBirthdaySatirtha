@@ -171,8 +171,9 @@ img {
    GLOW BORDER FOR CAKE
 ========================= */
 .cake {
-    position: center;
+    position: relative;
     border-radius: 20px;
+    justify-content: center;
     padding: 15px;
     animation: cakeGlow 2.5s infinite alternate;
 }
